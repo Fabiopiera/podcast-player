@@ -1,0 +1,38 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #1f1f1f;
+}
+
+.menu button,
+.share-button button {
+  background: none;
+  border: none;
+  color: #60575a;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.logo img {
+  height: 30px;
+}
+
+.profile img {
+  height: 40px;
+}
+
+.search-bar {
+  flex-grow: 1;
+  margin: 0 20px;
+}
+
+.search-bar input {
+  width: 80%;
+  padding: 5px 10px;
+  border-radius: 20px;
+  border: 1px solid #53484c;
+  background-color: #121212;
+  color: #ffffff;
+}
