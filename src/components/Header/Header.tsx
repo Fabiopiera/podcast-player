@@ -13,7 +13,7 @@ const Header: React.FC = () => {
       <Logo />
       <SearchBar />
       <ShareButton />
-      <Profile />
+      <Profile profileImage="./assets/profile.png" userName="" />
     </header>
   );
 };

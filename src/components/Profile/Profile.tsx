@@ -3,7 +3,7 @@ import "./Profile.css";
 
 interface ProfileProps {
   profileImage: string;
-  userName: string;
+  userName?: string;
 }
 
 const Profile: React.FC<ProfileProps> = ({ profileImage, userName }) => {
