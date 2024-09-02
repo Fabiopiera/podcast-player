@@ -1,0 +1,26 @@
+/* src/components/AudioPlayer/AudioPlayer.css */
+.audio-player {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  background-color: #1f1e1e; /* Fondo del reproductor */
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+audio {
+  width: 100%;
+  /*max-width: 1000px; /* Ajusta el tamaño máximo según tus necesidades */
+  outline: none;
+}
+
+audio::-webkit-media-controls-panel {
+  background-color: #121212; /* Fondo de los controles */
+  border-radius: 8px;
+}
+
+audio::-webkit-media-controls-play-button,
+audio::-webkit-media-controls-volume-slider {
+  filter: invert(100%); /* Cambia el color de los botones a blanco */
+}

@@ -1,0 +1,38 @@
+.audio-player {
+  width: 99%;
+  max-width: 99%;
+  /* position: fixed; */
+  bottom: 0;
+  left: 0;
+  background-color: #121212; /* Cambia este color según tus necesidades */
+  border-radius: 0; /* Sin border-radius para que coincida con el borde de la pantalla */
+  padding: 10px;
+  box-shadow: 0 -2px 8px rgba(201, 52, 52, 0.1); /* Añade una sombra hacia arriba */
+  z-index: 1000; /* Asegura que esté por encima de otros elementos */
+}
+
+.audio-player audio {
+  width: 100%;
+  outline: none;
+  border-radius: 5px; /* Opcional: Añade border-radius al audio para coincidir con el contenedor */
+}
+
+.controls {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  margin: 5px;
+  padding: 10px;
+  border: none;
+  background-color: #007bff; /* Cambia el color de fondo del botón aquí */
+  color: white;
+  border-radius: 5px; /* Cambia este valor según tus necesidades */
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3; /* Cambia el color de fondo del botón al pasar el ratón aquí */
+}

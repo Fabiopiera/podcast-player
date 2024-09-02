@@ -1,0 +1,67 @@
+/* src/components/PlaylistForm/PlaylistForm.module.css */
+.playlistForm {
+  display: flex;
+  justify-content: space-between; /* Distribuir espacio entre los elementos */
+  margin: 20px;
+  background-color: #121212; /* Fondo negro */
+  color: #fff; /* Texto blanco */
+  border-radius: 10px; /* Bordes redondeados */
+  padding: 20px;
+}
+
+.formInputs {
+  display: flex;
+  flex-direction: column;
+  width: 40%; /* Ocupa la mitad del ancho */
+}
+
+.formInputs input {
+  margin-bottom: 10px;
+  padding: 8px;
+  font-size: 16px;
+  background-color: #121212; /* Fondo oscuro para los inputs */
+  border: 1px solid #555252; /* Borde blanco */
+  color: #fff; /* Texto blanco */
+  border-radius: 20px; /* Bordes redondeados */
+}
+
+.formInputs button {
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 40%;
+  background-color: rgb(88, 82, 82); /* Botón habilitado */
+  border: 1px solid #555252; /* Borde blanco */
+  color: #fff; /* Texto blanco */
+  border-radius: 20px; /* Bordes redondeados */
+}
+
+.formInputs button:disabled {
+  background-color: #121212; /* Botón deshabilitado en gris */
+}
+
+.preview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 45%; /* Ocupa menos de la mitad del ancho */
+  text-align: center; /* Centrar el contenido de la vista previa */
+}
+
+.preview img {
+  max-width: 50%;
+  height: auto;
+  border-radius: 10px; /* Bordes redondeados para la imagen */
+}
+
+.preview h4 {
+  margin: 10px 0 5px;
+}
+
+.preview p {
+  margin: 0;
+}
+
+.header {
+  color: rgb(161, 157, 154); /* Cambia este color al que prefieras */
+}

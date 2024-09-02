@@ -1,13 +1,39 @@
+/* src/components/ListenAgain/ListenAgain.css */
+.scrollable-section {
+  overflow-x: hidden; /* Oculta la barra de desplazamiento horizontal */
+  white-space: nowrap;
+}
+
 .similar-to {
-  background-color: #1f1f1f;
   padding: 20px;
-  color: #ffffff;
 }
 
-.similar-to h2 {
-  color: #e91e63;
+.similar-to .thumbnails {
+  display: flex;
+  gap: 20px; /* espacio horizontal entre miniaturas */
 }
 
-.similar-to .item {
-  margin: 10px 0;
+.similar-to .thumbnail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.similar-to .thumbnail img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.similar-to .thumbnail-info {
+  text-align: center;
+}
+
+.similar-to .title {
+  font-weight: bold;
+}
+
+.similar-to .artist {
+  color: gray;
 }

@@ -5,6 +5,9 @@ import SearchBar from "./SearchBar";
 import ShareButton from "./ShareButton";
 import Profile from "../Profile/Profile";
 import "./Header.css";
+import ProfileImage from "../ProfileImage/ProfileImage";
+
+import profileImage from "../../assets/profile.png"; // Importa la imagen del perfil
 
 const Header: React.FC = () => {
   return (
@@ -13,7 +16,7 @@ const Header: React.FC = () => {
       <Logo />
       <SearchBar />
       <ShareButton />
-      <Profile profileImage="./assets/profile.png" userName="" />
+      <ProfileImage profileImage={profileImage} />
     </header>
   );
 };
