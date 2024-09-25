@@ -1,0 +1,15 @@
+.nav-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.nav-button img {
+  width: 30px;
+  height: 30px;
+}
+
+.nav-button img:hover {
+  opacity: 0.8;
+}

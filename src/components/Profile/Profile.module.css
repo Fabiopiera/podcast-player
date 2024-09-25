@@ -1,0 +1,17 @@
+.profile {
+  display: flex;
+  align-items: center; /* Alinea verticalmente el perfil y el nombre de usuario */
+}
+
+.profile-image {
+  height: 30px;
+  width: 40px;
+  border-radius: 50%;
+  margin-right: 10px; /* Espacio a la derecha de la imagen */
+}
+
+.user-name {
+  margin: 10;
+  font-size: 1rem;
+  color: #3b2da6; /* Color del nombre del usuario */
+}

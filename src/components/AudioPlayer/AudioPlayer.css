@@ -1,0 +1,33 @@
+/* src/components/AudioPlayer/AudioPlayer.css */
+.audio-player {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  background-color: #121212; /* Fondo del reproductor */
+  border-radius: 0; /* Quitamos el borde redondeado para una barra fija */
+  position: fixed; /* Fija el reproductor */
+  bottom: 0; /* Lo coloca en la parte inferior */
+  left: 0px; /* Margen izquierdo de 30px */
+  right: 30px; /* Opcional: margen derecho de 30px para mantener simetría */
+  width: calc(
+    100% - 20px
+  ); /* Reduce el ancho total para compensar los márgenes */
+  z-index: 1000; /* Asegura que el reproductor esté encima de otros elementos */
+}
+
+audio {
+  width: 100%;s
+  /*max-width: 1000px; /* Ajusta el tamaño máximo según tus necesidades */
+  outline: none;
+}
+
+audio::-webkit-media-controls-panel {
+  background-color: #303030; /* Fondo de los controles */
+  border-radius: 8px;
+}
+
+audio::-webkit-media-controls-play-button,
+audio::-webkit-media-controls-volume-slider {
+  filter: invert(100%); /* Cambia el color de los botones a blanco */
+}

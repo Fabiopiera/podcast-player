@@ -1,0 +1,49 @@
+/* Sidebar.module.css */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2px;
+  background-color: #121212; /* Color oscuro para el fondo */
+  border-right: 2px solid rgb(85, 82, 82); /* Línea blanca a la derecha */
+  width: 8%;
+}
+
+.new-playlist-btn,
+.another-btn {
+  background-color: #121212; /* Color verde para el botón */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-bottom: 10px; /* Espacio entre los botones */
+}
+
+.new-playlist-btn:hover,
+.another-btn:hover {
+  background-color: #373737; /* Color más claro al pasar el mouse */
+}
+
+.playlists {
+  margin-top: 20px;
+}
+
+.playlistItem {
+  margin-bottom: 20px;
+}
+
+.playlistItem img {
+  width: 50%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.playlistItem h4 {
+  margin: 10px 0 5px;
+}
+
+.playlistItem p {
+  margin: 0;
+}

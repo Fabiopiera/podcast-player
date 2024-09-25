@@ -1,38 +1,53 @@
-import React from "react";
-import SectionHeader from "../SectionHeader/SectionHeader";
-import profileImage from "../../assets/profile.png"; // Importa la imagen del perfil
-import album1 from "../../assets/album1.png"; // Importa la imagen del álbum 1
-import album2 from "../../assets/album2.png"; // Importa la imagen del álbum 2
+// src/components/ListenAgain/ListenAgain.tsx
+import React, { useContext } from "react";
+import { DataContext } from "../../context/DataContext";
+import { useAudioPlayer } from "../../context/AudioPlayerContext"; // Importamos el hook
 import "./ListenAgain.css";
 
 const ListenAgain: React.FC = () => {
+  const { setAudioUrl } = useAudioPlayer(); // Usamos el hook para actualizar el audio
+  const dataContext = useContext(DataContext); // datos del DataContext
+
+  if (!dataContext) {
+    return <div>Error: DataContext no está disponible</div>;
+  }
+
+  const { thumbnails, loading } = dataContext;
+
+  if (loading) {
+    return <div>Cargando...</div>;
+  }
+
+  // Función para formatear la duración
+  const formatDuration = (durationInSeconds: number): string => {
+    const totalSeconds = Math.floor(durationInSeconds);
+    const minutes = Math.floor(totalSeconds / 60);
+    const seconds = totalSeconds % 60;
+
+    return `${minutes} min ${seconds} sec`;
+  };
+
   return (
-    <section className="listen-again">
-      <SectionHeader
-        profileImage={profileImage}
-        userName="Ryan Jones"
-        sectionTitle="Listen Again"
-      />
-      {/* Aquí irán los elementos de la sección */}
-      <div className="items">
-        {/* Ejemplo de miniaturas de canciones */}
-        <div className="item">
-          <img src={album1} alt="Album 1" />
-          <div className="details">
-            <p className="title">Song Title 1</p>
-            <p className="artist">Artist 1</p>
+    <div className="listen-again">
+      <div className="thumbnails">
+        {thumbnails.map((thumbnail) => (
+          <div key={thumbnail.id} className="thumbnail">
+            <img
+              src={thumbnail.logo}
+              alt={thumbnail.title}
+              onClick={() => setAudioUrl(thumbnail.url)} // Actualizamos la URL del audio al hacer clic
+            />
+            <div className="thumbnail-info">
+              <p className="title">{thumbnail.title}</p>
+              <p className="subtitle">{thumbnail.description}</p>
+              <p className="duration">
+                Duración: {formatDuration(thumbnail.duration)}
+              </p>
+            </div>
           </div>
-        </div>
-        <div className="item">
-          <img src={album2} alt="Album 2" />
-          <div className="details">
-            <p className="title">Song Title 2</p>
-            <p className="artist">Artist 2</p>
-          </div>
-        </div>
-        {/* Añadir más elementos según sea necesario */}
+        ))}
       </div>
-    </section>
+    </div>
   );
 };
 

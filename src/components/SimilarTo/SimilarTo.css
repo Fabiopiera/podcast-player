@@ -1,13 +1,49 @@
+/* src/components/ListenAgain/ListenAgain.css */
+.scrollable-section {
+  overflow-x: hidden; /* Oculta la barra de desplazamiento horizontal */
+  white-space: nowrap;
+}
+
 .similar-to {
-  background-color: #2c2c2c;
   padding: 20px;
-  color: #ffffff;
 }
 
-.similar-to h2 {
-  color: #e91e63;
+.similar-to .thumbnails {
+  display: flex;
+  gap: 20px; /* espacio horizontal entre miniaturas */
 }
 
-.similar-to .item {
-  margin: 10px 0;
+.similar-to .thumbnail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.similar-to .thumbnail img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.similar-to .thumbnail img:hover {
+  opacity: 0.5;
+}
+
+.similar-to .thumbnail-info {
+  text-align: center;
+  color: gray;
+}
+
+.similar-to .title {
+  font-weight: bold;
+  margin-bottom: 5px; /* Espacio entre el título y el artista */
+  max-width: 200px; /* Ajusta el ancho máximo del contenedor de texto */
+  overflow: hidden; /* Oculta el texto que se desborda */
+  text-overflow: ellipsis;
+}
+
+.similar-to .artist {
+  color: gray;
 }
