@@ -24,14 +24,24 @@
   height: 200px;
   object-fit: cover;
   border-radius: 50%;
+  cursor: pointer;
+}
+
+.similar-to .thumbnail img:hover {
+  opacity: 0.5;
 }
 
 .similar-to .thumbnail-info {
   text-align: center;
+  color: gray;
 }
 
 .similar-to .title {
   font-weight: bold;
+  margin-bottom: 5px; /* Espacio entre el título y el artista */
+  max-width: 200px; /* Ajusta el ancho máximo del contenedor de texto */
+  overflow: hidden; /* Oculta el texto que se desborda */
+  text-overflow: ellipsis;
 }
 
 .similar-to .artist {

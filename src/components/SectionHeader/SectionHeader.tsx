@@ -1,6 +1,6 @@
-// SectionHeader.tsx
-import React, { useState } from "react";
+import React from "react";
 import ProfileImage from "../ProfileImage/ProfileImage";
+import ScrollButton from "../ScrollButton/ScrollButton";
 import "./SectionHeader.css";
 import circleLeft from "../../assets/icons/circle_left.svg";
 import circleOnLeft from "../../assets/icons/circle_onleft.svg";
@@ -10,9 +10,9 @@ import circleOnRight from "../../assets/icons/circle_onright.svg";
 interface SectionHeaderProps {
   profileImage: string;
   sectionTitle: string;
-  onScrollLeft: () => void; // Nueva prop para manejar el scroll a la izquierda
-  onScrollRight: () => void; // Nueva prop para manejar el scroll a la derecha
-  children?: React.ReactNode; // Nueva propiedad para contenido personalizado
+  onScrollLeft: () => void;
+  onScrollRight: () => void;
+  children?: React.ReactNode;
 }
 
 const SectionHeader: React.FC<SectionHeaderProps> = ({
@@ -22,27 +22,6 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({
   onScrollRight,
   children,
 }) => {
-  const [leftIcon, setLeftIcon] = useState(circleLeft);
-  const [rightIcon, setRightIcon] = useState(circleRight);
-
-  const handleLeftMouseDown = () => {
-    setLeftIcon(circleOnLeft);
-    onScrollLeft();
-  };
-
-  const handleLeftMouseUp = () => {
-    setLeftIcon(circleLeft);
-  };
-
-  const handleRightMouseDown = () => {
-    setRightIcon(circleOnRight);
-    onScrollRight();
-  };
-
-  const handleRightMouseUp = () => {
-    setRightIcon(circleRight);
-  };
-
   return (
     <div className="section-header">
       <div className="left">
@@ -53,20 +32,18 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({
         </div>
       </div>
       <div className="right">
-        <button
-          className="nav-button"
-          onMouseDown={handleLeftMouseDown}
-          onMouseUp={handleLeftMouseUp}
-        >
-          <img src={leftIcon} alt="Scroll Left" />
-        </button>
-        <button
-          className="nav-button"
-          onMouseDown={handleRightMouseDown}
-          onMouseUp={handleRightMouseUp}
-        >
-          <img src={rightIcon} alt="Scroll Right" />
-        </button>
+        <ScrollButton
+          defaultIcon={circleLeft}
+          activeIcon={circleOnLeft}
+          altText="Scroll Left"
+          onClick={onScrollLeft}
+        />
+        <ScrollButton
+          defaultIcon={circleRight}
+          activeIcon={circleOnRight}
+          altText="Scroll Right"
+          onClick={onScrollRight}
+        />
       </div>
     </div>
   );

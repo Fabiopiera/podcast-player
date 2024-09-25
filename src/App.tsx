@@ -10,7 +10,10 @@ import Sidebar from "./components/SideBar/SideBar";
 import RecomendedAlbums from "./components/RecommendedAlbums/RecommendedAlbums";
 import UserName from "./components/UserName/UserName";
 import PlaylistForm from "./components/PlayListForm/PlaylistForm";
-import "./App.css"; // Asegúrate de tener este archivo para los estilos globales
+import "./App.css"; // estilos globales
+// import ProfileImage from "./components/ProfileImage/ProfileImage";
+import { DataProvider } from "./context/DataContext";
+import { AudioPlayerProvider } from "./context/AudioPlayerContext";
 
 const App: React.FC = () => {
   const sectionRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
@@ -44,65 +47,71 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="app">
-      <Header />
-      <div className="main-content">
-        <Sidebar
-          playlists={playlists}
-          onAddPlaylist={() => setIsFormVisible(true)}
-        />
-        <div className="content">
-          {isFormVisible ? (
-            <PlaylistForm
-              formData={formData}
-              onInputChange={handleInputChange}
-              onAddPlaylist={handleAddPlaylist}
+    <AudioPlayerProvider>
+      <DataProvider>
+        <div className="app">
+          <Header />
+          <div className="main-content">
+            <Sidebar
+              playlists={playlists}
+              onAddPlaylist={() => setIsFormVisible(true)}
             />
-          ) : (
-            sectionData.sections.map((section, index) => (
-              <div key={index}>
-                <SectionHeader
-                  profileImage={sectionData.profile.profileImage}
-                  sectionTitle={section.sectionTitle}
-                  onScrollLeft={() =>
-                    handleScroll(section.sectionTitle, "left")
-                  }
-                  onScrollRight={() =>
-                    handleScroll(section.sectionTitle, "right")
-                  }
-                >
-                  {section.sectionTitle === "Recomendados" ? (
-                    <span>Otro Contenido</span> // Contenido personalizado para "Recomendados"
-                  ) : section.sectionTitle === "Selección rápida" ? (
-                    <span></span> // Contenido personalizado para "Selección rápida" (eliminar todo lo personalizado de la seccion para que quede username por defecto)
-                  ) : (
-                    <UserName userName={sectionData.profile.userName} /> // Mostrar userName por defecto
-                  )}
-                </SectionHeader>
-                <div
-                  ref={(el) => (sectionRefs.current[section.sectionTitle] = el)}
-                  className="scrollable-section"
-                >
-                  {section.sectionTitle === "Escuchar nuevamente" && (
-                    <ListenAgain />
-                  )}
-                  {section.sectionTitle === "Selección rápida" && (
-                    <QuickPicks />
-                  )}
-                  {section.sectionTitle === "Similar a" && <SimilarTo />}
-                  {section.sectionTitle === "Recomendados" && (
-                    <RecomendedAlbums />
-                  )}
-                </div>
-              </div>
-            ))
-          )}
+            <div className="content">
+              {isFormVisible ? (
+                <PlaylistForm
+                  formData={formData}
+                  onInputChange={handleInputChange}
+                  onAddPlaylist={handleAddPlaylist}
+                />
+              ) : (
+                sectionData.sections.map((section, index) => (
+                  <div key={index}>
+                    <SectionHeader
+                      profileImage={sectionData.profile.profileImage}
+                      sectionTitle={section.sectionTitle}
+                      onScrollLeft={() =>
+                        handleScroll(section.sectionTitle, "left")
+                      }
+                      onScrollRight={() =>
+                        handleScroll(section.sectionTitle, "right")
+                      }
+                    >
+                      {section.sectionTitle === "Recomendados" ? (
+                        <span>Otro Contenido</span> // Contenido personalizado para "Recomendados"
+                      ) : section.sectionTitle === "Selección rápida" ? (
+                        <span>Pepe {sectionData.profile.userName}</span> // Contenido personalizado para "Selección rápida" (eliminar todo lo personalizado de la seccion para que quede username por defecto)
+                      ) : (
+                        <UserName userName={sectionData.profile.userName} /> // Mostrar userName por defecto
+                      )}
+                    </SectionHeader>
+                    <div
+                      ref={(el) =>
+                        (sectionRefs.current[section.sectionTitle] = el)
+                      }
+                      className="scrollable-section"
+                    >
+                      {section.sectionTitle === "Escuchar nuevamente" && (
+                        <ListenAgain />
+                      )}
+                      {section.sectionTitle === "Selección rápida" && (
+                        <QuickPicks />
+                      )}
+                      {section.sectionTitle === "Similar a" && <SimilarTo />}
+                      {section.sectionTitle === "Recomendados" && (
+                        <RecomendedAlbums />
+                      )}
+                    </div>
+                  </div>
+                ))
+              )}
+            </div>
+          </div>
+          <div className="app">
+            <AudioPlayer />
+          </div>
         </div>
-      </div>
-      <div className="app">
-        <AudioPlayer />
-      </div>
-    </div>
+      </DataProvider>
+    </AudioPlayerProvider>
   );
 };
 

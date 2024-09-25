@@ -51,8 +51,3 @@
   cursor: pointer;
   margin-left: 10px;
 }
-
-.nav-button img {
-  width: 30px; /* Ajusta el tamaño de los botones */
-  height: 30px;
-}
