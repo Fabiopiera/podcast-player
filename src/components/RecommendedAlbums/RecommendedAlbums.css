@@ -1,20 +1,50 @@
-.recommended-albums {
-  background-color: #1f1f1f;
+/* src/components/ListenAgain/ListenAgain.css */
+.scrollable-section {
+  overflow-x: hidden; /* Oculta la barra de desplazamiento horizontal */
+  white-space: nowrap;
+}
+
+.recomended-albums {
   padding: 20px;
-  color: #ffffff;
 }
 
-.recommended-albums h2 {
-  color: #e91e63;
-}
-
-.recommended-albums .album {
+.recomended-albums .thumbnails {
   display: flex;
-  align-items: center;
-  margin: 10px 0;
+  gap: 20px; /* espacio horizontal entre miniaturas */
+  margin-right: 20px; /* Añade un margen derecho explícito */
 }
 
-.recommended-albums .album img {
-  height: 50px;
-  margin-right: 10px;
+.recomended-albums .thumbnail {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.recomended-albums .thumbnail img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.recomended-albums .thumbnail img:hover {
+  opacity: 0.5;
+}
+
+.recomended-albums .thumbnail-info {
+  text-align: left;
+}
+
+.recomended-albums .title {
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  margin-bottom: 5px; /* Espacio entre el título y el artista */
+  max-width: 200px; /* Ajusta el ancho máximo del contenedor de texto */
+  overflow: hidden; /* Oculta el texto que se desborda */
+  text-overflow: ellipsis;
+}
+
+.recomended-albums .artist {
+  color: gray;
 }

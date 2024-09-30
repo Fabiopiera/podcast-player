@@ -22,3 +22,15 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# archivos duplicados
+App_0.tsx
+App_1.tsx
+ListenAgain_0.tsx
+ListenAgain_1.tsx
+ListenAgain_context.tsx
+ListenAgain_0.css
+SimilarTo_0.tsx
+QuickPicks_0.tsx
+RecommendedAlbums_0.tsx
+

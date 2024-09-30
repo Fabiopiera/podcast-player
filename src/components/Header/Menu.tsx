@@ -1,9 +1,10 @@
 import React from "react";
+import menu from "../../assets/menu.svg"; // Importa la imagen
 
 const Menu: React.FC = () => {
   return (
     <div className="menu">
-      <button>☰</button>
+      <img src={menu} alt="menu" />
     </div>
   );
 };

@@ -1,38 +1,63 @@
+/* src/components/ListenAgain/ListenAgain.css */
+.scrollable-section {
+  overflow-x: hidden; /* Oculta la barra de desplazamiento horizontal */
+  white-space: nowrap;
+}
+
 .listen-again {
-  background-color: #1f1f1f;
   padding: 20px;
-  color: #ffffff;
 }
 
-.items {
+.listen-again .thumbnails {
   display: flex;
-  overflow-x: hidden; /* Cambiar de scroll a hidden */
+  gap: 20px; /* Espacio horizontal entre miniaturas */
+  margin-right: 20px; /* Añade un margen derecho explícito */
 }
 
-.item {
+.listen-again .thumbnail {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin-right: 10px;
+  align-items: flex-start;
 }
 
-.item img {
-  height: 120px;
-  width: 120px;
+.listen-again .thumbnail img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
   border-radius: 8px;
-  margin-bottom: 5px;
+  cursor: pointer;
 }
 
-.details {
-  text-align: center;
+.listen-again .thumbnail img:hover {
+  opacity: 0.5;
 }
 
-.title {
-  font-size: 1rem;
+.listen-again .thumbnail-info {
+  color: gray;
+  text-align: left;
+}
+
+.listen-again .title {
+  color: rgb(255, 255, 255);
   font-weight: bold;
+  margin-bottom: 5px; /* Espacio entre el título y el artista */
+  max-width: 200px; /* Ajusta el ancho máximo del contenedor de texto */
+  overflow: hidden; /* Oculta el texto que se desborda */
+  text-overflow: ellipsis;
+}
+.listen-again .subtitle {
+  color: rgb(95, 14, 14);
+  font-weight: bold;
+  margin-bottom: 5px; /* Espacio entre el título y el artista */
+  max-width: 200px; /* Ajusta el ancho máximo del contenedor de texto */
+  overflow: hidden; /* Oculta el texto que se desborda */
+  text-overflow: ellipsis;
 }
 
-.artist {
-  font-size: 0.9rem;
-  color: #b3b3b3;
+.listen-again .artist {
+  color: rgb(255, 255, 255);
+}
+
+.listen-again .genero {
+  color: gray;
 }
