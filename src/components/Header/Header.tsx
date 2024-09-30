@@ -3,7 +3,6 @@ import Menu from "./Menu";
 import Logo from "./Logo";
 import SearchBar from "./SearchBar";
 import ShareButton from "./ShareButton";
-import Profile from "../Profile/Profile";
 import "./Header.css";
 import ProfileImage from "../ProfileImage/ProfileImage";
 
