@@ -2,10 +2,10 @@ import React from "react";
 import ProfileImage from "../ProfileImage/ProfileImage";
 import ScrollButton from "../ScrollButton/ScrollButton";
 import "./SectionHeader.css";
-import circleLeft from "../../assets/icons/circle_left.svg";
-import circleOnLeft from "../../assets/icons/circle_onleft.svg";
-import circleRight from "../../assets/icons/circle_right.svg";
-import circleOnRight from "../../assets/icons/circle_onright.svg";
+import circleLeft from "../../assets/icons/circle_left.png";
+import circleOnLeft from "../../assets/icons/circle_onleft.png";
+import circleRight from "../../assets/icons/circle_right.png";
+import circleOnRight from "../../assets/icons/circle_onright.png";
 
 interface SectionHeaderProps {
   profileImage: string;
