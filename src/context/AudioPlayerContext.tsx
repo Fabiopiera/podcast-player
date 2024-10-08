@@ -87,9 +87,16 @@ export const AudioPlayerProvider: React.FC<{ children: React.ReactNode }> = ({
     }
   };
 
-  // Cerrar el reproductor, pero no pausar automáticamente
+  // Cerrar el reproductor y detener el audio
   const closePlayer = () => {
     setIsVisible(false); // Oculta el reproductor
+
+    // Detiene y reinicia el audio cuando se cierra el reproductor
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0; // Reinicia el audio
+      setIsPlaying(false);
+    }
   };
 
   return (
