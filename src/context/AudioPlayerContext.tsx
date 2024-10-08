@@ -6,13 +6,13 @@ interface AudioPlayerContextType {
   audioTitle: string;
   audioImage: string;
   isPlaying: boolean;
-  isVisible: boolean; // Nuevo estado para controlar la visibilidad
+  isVisible: boolean;
   setAudioData: (url: string, title: string, image: string) => void;
   play: () => void;
   pause: () => void;
   seekForward: (seconds: number) => void;
   seekBackward: (seconds: number) => void;
-  closePlayer: () => void; // Nueva función para cerrar el reproductor
+  closePlayer: () => void;
 }
 
 const AudioPlayerContext = createContext<AudioPlayerContextType | undefined>(
@@ -27,28 +27,45 @@ export const AudioPlayerProvider: React.FC<{ children: React.ReactNode }> = ({
   const [audioTitle, setAudioTitle] = useState<string>("");
   const [audioImage, setAudioImage] = useState<string>("");
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
-  const [isVisible, setIsVisible] = useState<boolean>(false); // Estado para visibilidad
+  const [isVisible, setIsVisible] = useState<boolean>(false);
   const audioRef = useRef<HTMLAudioElement>(null);
 
+  // Función para configurar los datos del audio y reproducirlo
   const setAudioData = (url: string, title: string, image: string) => {
     setAudioUrl(url);
     setAudioTitle(title);
     setAudioImage(image);
-    setIsVisible(true); // Muestra el reproductor
-    setIsPlaying(true);
+    setIsVisible(true); // Mostrar el reproductor
+
+    // Verificar que el ref del audio esté disponible antes de reproducir
     if (audioRef.current) {
       audioRef.current.src = url;
-      audioRef.current.play();
+      audioRef.current
+        .play()
+        .then(() => {
+          setIsPlaying(true); // Cambia el estado a "playing" después de que empieza a reproducirse
+        })
+        .catch((err) => {
+          console.error("Error al reproducir el audio:", err);
+        });
     }
   };
 
+  // Función para reproducir
   const play = () => {
     if (audioRef.current) {
-      audioRef.current.play();
-      setIsPlaying(true);
+      audioRef.current
+        .play()
+        .then(() => {
+          setIsPlaying(true);
+        })
+        .catch((err) => {
+          console.error("Error al intentar reproducir:", err);
+        });
     }
   };
 
+  // Función para pausar
   const pause = () => {
     if (audioRef.current) {
       audioRef.current.pause();
@@ -56,21 +73,23 @@ export const AudioPlayerProvider: React.FC<{ children: React.ReactNode }> = ({
     }
   };
 
+  // Adelantar el audio
   const seekForward = (seconds: number) => {
     if (audioRef.current) {
       audioRef.current.currentTime += seconds;
     }
   };
 
+  // Retroceder el audio
   const seekBackward = (seconds: number) => {
     if (audioRef.current) {
       audioRef.current.currentTime -= seconds;
     }
   };
 
+  // Cerrar el reproductor, pero no pausar automáticamente
   const closePlayer = () => {
     setIsVisible(false); // Oculta el reproductor
-    pause(); // Detiene la reproducción si está en curso
   };
 
   return (
@@ -80,23 +99,23 @@ export const AudioPlayerProvider: React.FC<{ children: React.ReactNode }> = ({
         audioTitle,
         audioImage,
         isPlaying,
-        isVisible, // Añadir el estado de visibilidad
+        isVisible,
         setAudioData,
         play,
         pause,
         seekForward,
         seekBackward,
-        closePlayer, // Añadir la función closePlayer
+        closePlayer,
       }}
     >
       {children}
-      {isVisible && <audio ref={audioRef} />}{" "}
-      {/* Solo renderiza el audio si es visible */}
+      {/* Renderiza el elemento <audio> siempre, pero controlando la visibilidad */}
+      <audio ref={audioRef} style={{ display: isVisible ? "block" : "none" }} />
     </AudioPlayerContext.Provider>
   );
 };
 
-// Hook para usar el contexto en componentes
+// Hook para usar el contexto en otros componentes
 export const useAudioPlayer = () => {
   const context = useContext(AudioPlayerContext);
   if (!context) {
