@@ -3,9 +3,15 @@ import { DataContext } from "../../context/DataContext";
 import { useAudioPlayer } from "../../context/AudioPlayerContext"; // Importamos el hook
 import "./QuickPicks.css";
 
+interface Thumbnail {
+  url: string; // Asegúrate de que esta propiedad exista
+  logo: string;
+  title: string;
+}
+
 const QuickPicks: React.FC = () => {
-  const { setAudioUrl } = useAudioPlayer(); // Usamos el hook para actualizar el audio
-  const dataContext = useContext(DataContext); // datos del DataContext
+  const { setAudioData, audioUrl, isPlaying, pause } = useAudioPlayer(); // useAudioPlayer es un hook personalizado que maneja el estado del reproductor de audio
+  const dataContext = useContext(DataContext); // useContext es un hook que permite acceder a un contexto
 
   if (!dataContext) {
     return <div>Error: DataContext no está disponible</div>;
@@ -16,13 +22,13 @@ const QuickPicks: React.FC = () => {
   if (loading) {
     return <div>Cargando...</div>;
   }
-  // Función para formatear la duración
-  const formatDuration = (durationInSeconds: number): string => {
-    const totalSeconds = Math.floor(durationInSeconds);
-    const minutes = Math.floor(totalSeconds / 60);
-    const seconds = totalSeconds % 60;
-
-    return `${minutes} min ${seconds} sec`;
+  // Manejo de clic en la tarjeta
+  const handleCardClick = (thumbnail: Thumbnail) => {
+    if (audioUrl === thumbnail.url && isPlaying) {
+      pause(); // Pausar si el audio ya se está reproduciendo
+    } else {
+      setAudioData(thumbnail.url, thumbnail.title, thumbnail.logo); // Establecer nuevos datos de audio
+    }
   };
 
   return (
@@ -38,13 +44,14 @@ const QuickPicks: React.FC = () => {
                     <img
                       src={thumbnail.logo}
                       alt={thumbnail.title}
-                      onClick={() => setAudioUrl(thumbnail.url)} // Actualizamos la URL del audio al hacer clic
+                      onClick={() => handleCardClick(thumbnail)} // Actualizamos la URL del audio al hacer clic
                       className="thumbnail-image"
                     />
                     <div className="thumbnail-info">
                       <p className="title">{thumbnail.title}</p>
                       <p className="artist">
-                        {formatDuration(thumbnail.duration)}
+                        Duración: {Math.floor(thumbnail.duration / 60)} min{" "}
+                        {Math.floor(thumbnail.duration % 60)} sec
                       </p>
                     </div>
                   </div>

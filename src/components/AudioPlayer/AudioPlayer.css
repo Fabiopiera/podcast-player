@@ -1,33 +1,58 @@
 /* src/components/AudioPlayer/AudioPlayer.css */
 .audio-player {
   display: flex;
-  justify-content: center;
   align-items: center;
-  padding: 10px;
-  background-color: #121212; /* Fondo del reproductor */
-  border-radius: 0; /* Quitamos el borde redondeado para una barra fija */
-  position: fixed; /* Fija el reproductor */
-  bottom: 0; /* Lo coloca en la parte inferior */
-  left: 0px; /* Margen izquierdo de 30px */
-  right: 30px; /* Opcional: margen derecho de 30px para mantener simetría */
-  width: calc(
-    100% - 20px
-  ); /* Reduce el ancho total para compensar los márgenes */
-  z-index: 1000; /* Asegura que el reproductor esté encima de otros elementos */
+  justify-content: space-between;
+  background-color: #312e2e; /* Color de fondo */
+  padding: 10px 20px; /* Espaciado interno */
+  height: 60px; /* Altura del reproductor */
+  width: 97%; /* Ancho completo */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  position: fixed; /* Fijar en la parte inferior */
+  bottom: 0; /* Ubicar al fondo */
+  left: 0; /* Alinear a la izquierda */
+  z-index: 1000; /* Mantener por encima de otras secciones */
 }
 
-audio {
-  width: 100%;
-  /*max-width: 1000px; /* Ajusta el tamaño máximo según tus necesidades */
-  outline: none;
+.player-content {
+  display: flex;
+  align-items: center;
 }
 
-audio::-webkit-media-controls-panel {
-  background-color: #303030; /* Fondo de los controles */
-  border-radius: 8px;
+.audio-thumbnail {
+  width: 50px; /* Ajusta el tamaño según tus preferencias */
+  height: 50px;
+  margin-right: 20px; /* Margen entre la imagen y el título */
+  border-radius: 4px; /* Bordes redondeados */
 }
 
-audio::-webkit-media-controls-play-button,
-audio::-webkit-media-controls-volume-slider {
-  filter: invert(100%); /* Cambia el color de los botones a blanco */
+.player-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.audio-title {
+  font-size: 16px; /* Tamaño de fuente para el título */
+  font-weight: bold; /* Negrita */
+  margin: 0; /* Sin margen */
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+}
+
+.controls button {
+  margin-left: 20px; /* Margen a la izquierda del botón */
+  padding: 10px 15px; /* Espaciado interno del botón */
+  border: none; /* Sin borde */
+  background-color: #4b4d4f; /* Color de fondo del botón */
+  color: white; /* Color del texto */
+  border-radius: 4px; /* Bordes redondeados del botón */
+  cursor: pointer; /* Cambia el cursor al pasar el mouse */
+  transition: background-color 0.3s; /* Efecto de transición */
+}
+
+.controls button:hover {
+  background-color: #0056b3; /* Color de fondo al pasar el mouse */
 }
