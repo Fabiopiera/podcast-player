@@ -5,7 +5,7 @@ import { useAudioPlayer } from "../../context/AudioPlayerContext"; // Importamos
 import "./ListenAgain.css";
 
 const ListenAgain: React.FC = () => {
-  const { setAudioUrl } = useAudioPlayer(); // Usamos el hook para actualizar el audio
+  const { setAudioData, isPlaying, audioUrl, pause } = useAudioPlayer(); // Usamos el hook para actualizar los datos del audio
   const dataContext = useContext(DataContext); // datos del DataContext
 
   if (!dataContext) {
@@ -18,13 +18,13 @@ const ListenAgain: React.FC = () => {
     return <div>Cargando...</div>;
   }
 
-  // Función para formatear la duración
-  const formatDuration = (durationInSeconds: number): string => {
-    const totalSeconds = Math.floor(durationInSeconds);
-    const minutes = Math.floor(totalSeconds / 60);
-    const seconds = totalSeconds % 60;
-
-    return `${minutes} min ${seconds} sec`;
+  // Manejo de clic en la tarjeta
+  const handleCardClick = (thumbnail) => {
+    if (audioUrl === thumbnail.url && isPlaying) {
+      pause(); // Pausar si el audio ya se está reproduciendo
+    } else {
+      setAudioData(thumbnail.url, thumbnail.title, thumbnail.logo); // Establecer nuevos datos de audio
+    }
   };
 
   return (
@@ -35,13 +35,14 @@ const ListenAgain: React.FC = () => {
             <img
               src={thumbnail.logo}
               alt={thumbnail.title}
-              onClick={() => setAudioUrl(thumbnail.url)} // Actualizamos la URL del audio al hacer clic
+              onClick={() => handleCardClick(thumbnail)} // Manejo de clic en la tarjeta
             />
             <div className="thumbnail-info">
               <p className="title">{thumbnail.title}</p>
               <p className="subtitle">{thumbnail.description}</p>
               <p className="duration">
-                Duración: {formatDuration(thumbnail.duration)}
+                Duración: {Math.floor(thumbnail.duration / 60)} min{" "}
+                {Math.floor(thumbnail.duration % 60)} sec
               </p>
             </div>
           </div>
