@@ -9,7 +9,9 @@ interface SidebarProps {
 const Sidebar: React.FC<SidebarProps> = ({ playlists, onAddPlaylist }) => {
   return (
     <div className={styles.sidebar}>
-      <button className={styles["new-playlist-btn"]}>Home</button>
+      <a href="/">
+        <button className={styles["new-playlist-btn"]}>Inicio</button>
+      </a>
       <button className={styles["new-playlist-btn"]} onClick={onAddPlaylist}>
         Playlist
       </button>

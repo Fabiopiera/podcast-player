@@ -60,3 +60,21 @@
   overflow: hidden; /* Oculta el texto que se desborda */
   text-overflow: ellipsis;
 }
+
+/* manejo del icono play sobre la miniatura */
+
+.thumbnail_icon_quick {
+  position: relative; /* Asegúrate de que el contenedor sea relativo */
+  display: inline-block; /* Para permitir el posicionamiento absoluto */
+}
+
+.play-iconquick {
+  position: absolute; /* Posicionamiento absoluto */
+  top: 50%; /* Centrar verticalmente */
+  left: 15%; /* Centrar horizontalmente */
+  transform: translate(-50%, -50%); /* Centrar completamente */
+  font-size: 1.5rem; /* Tamaño del ícono de play */
+  color: rgb(255, 255, 255); /* Color del ícono */
+  z-index: 10; /* Asegúrate de que esté encima de la imagen */
+  pointer-events: none; /* Para que no interfiera con los clics */
+}

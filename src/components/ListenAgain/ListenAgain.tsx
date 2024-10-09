@@ -61,6 +61,9 @@ const ListenAgain: React.FC = () => {
           >
             <img src={thumbnail.logo} alt={thumbnail.title} />{" "}
             {/* Mostramos la imagen/logo de la miniatura */}
+            {audioUrl === thumbnail.url && isPlaying && (
+              <div className="play-icon">▶</div> // Mostrar el ícono de play
+            )}
             <div className="thumbnail-info">
               {" "}
               {/* Contenedor para la información de la miniatura */}

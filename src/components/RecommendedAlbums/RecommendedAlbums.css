@@ -48,3 +48,21 @@
 .recomended-albums .duration {
   color: gray;
 }
+
+/* manejo del icono play sobre la miniatura */
+
+.thumbnail {
+  position: relative; /* Asegúrate de que el contenedor sea relativo */
+  display: inline-block; /* Para permitir el posicionamiento absoluto */
+}
+
+.play-icon {
+  position: absolute; /* Posicionamiento absoluto */
+  top: 35%; /* Centrar verticalmente */
+  left: 55%; /* Centrar horizontalmente */
+  transform: translate(-50%, -50%); /* Centrar completamente */
+  font-size: 2rem; /* Tamaño del ícono de play */
+  color: white; /* Color del ícono */
+  z-index: 10; /* Asegúrate de que esté encima de la imagen */
+  pointer-events: none; /* Para que no interfiera con los clics */
+}

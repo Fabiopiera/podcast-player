@@ -42,6 +42,9 @@ const SimilarTo: React.FC = () => {
             onClick={() => handleCardClick(thumbnail)}
           >
             <img src={thumbnail.logo} alt={thumbnail.title} />
+            {audioUrl === thumbnail.url && isPlaying && (
+              <div className="play-icon">▶</div> // Mostrar el ícono de play
+            )}
             <div className="thumbnail-info">
               <p className="title">{thumbnail.title}</p>
 
