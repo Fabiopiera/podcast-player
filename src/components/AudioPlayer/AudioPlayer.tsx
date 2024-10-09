@@ -30,7 +30,7 @@ const AudioPlayer: React.FC = () => {
         {isPlaying ? (
           <button onClick={pause}>▌▌</button>
         ) : (
-          <button onClick={play} className="play-icon">
+          <button onClick={play} className="play-iconaudio">
             ▶
           </button> // Clase para play
         )}

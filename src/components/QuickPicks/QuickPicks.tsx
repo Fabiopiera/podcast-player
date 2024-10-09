@@ -41,6 +41,9 @@ const QuickPicks: React.FC = () => {
                 .slice(columnIndex * 4, columnIndex * 4 + 4)
                 .map((thumbnail) => (
                   <div key={thumbnail.id} className="thumbnail">
+                    {audioUrl === thumbnail.url && isPlaying && (
+                      <div className="play-iconquick">▶</div> // Mostrar el ícono de play
+                    )}
                     <img
                       src={thumbnail.logo}
                       alt={thumbnail.title}
