@@ -79,7 +79,7 @@ const App: React.FC = () => {
                       {section.sectionTitle === "Recomendados" ? (
                         <span>Otro Contenido</span> // Contenido personalizado para "Recomendados"
                       ) : section.sectionTitle === "Selección rápida" ? (
-                        <span>Pepe {sectionData.profile.userName}</span> // Contenido personalizado para "Selección rápida" (eliminar todo lo personalizado de la seccion para que quede username por defecto)
+                        <span>Usuario: {sectionData.profile.userName}</span> // Contenido personalizado para "Selección rápida" (eliminar todo lo personalizado de la seccion para que quede username por defecto)
                       ) : (
                         <UserName userName={sectionData.profile.userName} /> // Mostrar userName por defecto
                       )}

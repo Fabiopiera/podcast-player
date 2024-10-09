@@ -50,7 +50,7 @@ const QuickPicks: React.FC = () => {
                     <div className="thumbnail-info">
                       <p className="title">{thumbnail.title}</p>
                       <p className="artist">
-                        Duración: {Math.floor(thumbnail.duration / 60)} min{" "}
+                        ♫ {Math.floor(thumbnail.duration / 60)} min{" "}
                         {Math.floor(thumbnail.duration % 60)} sec
                       </p>
                     </div>

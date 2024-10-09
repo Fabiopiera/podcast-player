@@ -26,14 +26,16 @@ const AudioPlayer: React.FC = () => {
         </div>
       </div>
       <div className="controls">
-        <button onClick={() => seekBackward(10)}>◀ 10s</button>
+        <button onClick={() => seekBackward(10)}>◀◀</button>
         {isPlaying ? (
-          <button onClick={pause}>Pause</button>
+          <button onClick={pause}>▌▌</button>
         ) : (
-          <button onClick={play}>Play</button>
+          <button onClick={play} className="play-icon">
+            ▶
+          </button> // Clase para play
         )}
-        <button onClick={() => seekForward(10)}>▶ 10s</button>
-        <button onClick={closePlayer}>Cerrar</button> {/* Botón para cerrar */}
+        <button onClick={() => seekForward(10)}>▶▶</button>
+        <button onClick={closePlayer}>X</button> {/* Botón para cerrar */}
       </div>
     </div>
   );

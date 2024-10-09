@@ -53,6 +53,7 @@
 }
 
 .quick-picks .artist {
+  font-size: 12px;
   color: gray;
   margin-top: 2px; /* Ajusta el valor según sea necesario */
   max-width: 100px; /* Ajusta el ancho máximo del contenedor de texto */

@@ -70,7 +70,7 @@ const ListenAgain: React.FC = () => {
               {/* Descripción del audio (opcional) */}
               <p className="duration">
                 {/* Calculamos y mostramos la duración en minutos y segundos, si está disponible */}
-                Duración: {Math.floor(thumbnail.duration! / 60)} min{" "}
+                ♫ {Math.floor(thumbnail.duration! / 60)} min{" "}
                 {/* Math.floor para redondear minutos */}
                 {Math.floor(thumbnail.duration! % 60)} sec{" "}
                 {/* Redondeo para los segundos */}

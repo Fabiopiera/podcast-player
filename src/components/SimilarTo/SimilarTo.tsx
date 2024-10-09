@@ -46,7 +46,7 @@ const SimilarTo: React.FC = () => {
               <p className="title">{thumbnail.title}</p>
 
               <p className="duration">
-                Duración: {Math.floor(thumbnail.duration / 60)} min{" "}
+                ♫ {Math.floor(thumbnail.duration / 60)} min{" "}
                 {Math.floor(thumbnail.duration % 60)} sec
               </p>
             </div>
