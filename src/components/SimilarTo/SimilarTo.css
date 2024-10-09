@@ -37,6 +37,7 @@
 }
 
 .similar-to .title {
+  color: rgb(255, 255, 255);
   font-weight: bold;
   margin-bottom: 5px; /* Espacio entre el título y el artista */
   max-width: 200px; /* Ajusta el ancho máximo del contenedor de texto */

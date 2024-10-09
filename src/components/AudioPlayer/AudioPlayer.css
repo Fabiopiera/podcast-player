@@ -5,9 +5,9 @@
   justify-content: space-between;
   background-color: #312e2e; /* Color de fondo */
   padding: 10px 20px; /* Espaciado interno */
-  height: 60px; /* Altura del reproductor */
+  height: 40px; /* Altura del reproductor */
   width: 97%; /* Ancho completo */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  box-shadow: 0 2px 5px rgba(244, 241, 241, 0.1); /* Sombra suave */
   position: fixed; /* Fijar en la parte inferior */
   bottom: 0; /* Ubicar al fondo */
   left: 0; /* Alinear a la izquierda */
@@ -20,8 +20,9 @@
 }
 
 .audio-thumbnail {
-  width: 50px; /* Ajusta el tamaño según tus preferencias */
-  height: 50px;
+  margin-left: 30px;
+  width: 40px; /* Ajusta el tamaño según tus preferencias */
+  height: 40px;
   margin-right: 20px; /* Margen entre la imagen y el título */
   border-radius: 4px; /* Bordes redondeados */
 }
@@ -38,21 +39,27 @@
 }
 
 .controls {
+  margin-right: 50px;
   display: flex;
   align-items: center;
 }
 
 .controls button {
   margin-left: 20px; /* Margen a la izquierda del botón */
-  padding: 10px 15px; /* Espaciado interno del botón */
+  padding: 10px 5px; /* Espaciado interno del botón */
   border: none; /* Sin borde */
-  background-color: #4b4d4f; /* Color de fondo del botón */
+
+  background-color: #312e2e; /* Color de fondo del botón */
   color: white; /* Color del texto */
   border-radius: 4px; /* Bordes redondeados del botón */
   cursor: pointer; /* Cambia el cursor al pasar el mouse */
   transition: background-color 0.3s; /* Efecto de transición */
 }
 
+.play-icon {
+  font-size: 24px; /* Solo el ícono de play es más grande */
+}
+
 .controls button:hover {
-  background-color: #0056b3; /* Color de fondo al pasar el mouse */
+  background-color: #312e2e; /* Color de fondo al pasar el mouse */
 }

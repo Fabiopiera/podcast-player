@@ -18,7 +18,7 @@ interface SectionData {
 const sectionData: SectionData = {
   profile: {
     profileImage: profileImage,
-    userName: "Jhoan Pherez",
+    userName: "Fhabius Phiera",
   },
   sections: [
     {
