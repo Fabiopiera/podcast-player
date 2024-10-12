@@ -59,7 +59,7 @@
 .play-icon {
   position: absolute; /* Posicionamiento absoluto */
   top: 35%; /* Centrar verticalmente */
-  left: 55%; /* Centrar horizontalmente */
+  left: 50%; /* Centrar horizontalmente */
   transform: translate(-50%, -50%); /* Centrar completamente */
   font-size: 2rem; /* Tamaño del ícono de play */
   color: white; /* Color del ícono */
