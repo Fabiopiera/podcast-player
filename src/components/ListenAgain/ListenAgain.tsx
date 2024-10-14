@@ -69,7 +69,7 @@ const ListenAgain: React.FC = () => {
               {/* Contenedor para la información de la miniatura */}
               <p className="title">{thumbnail.title}</p>{" "}
               {/* Título del audio */}
-              <p className="subtitle">{thumbnail.description}</p>{" "}
+              <p className="subtitle">•{thumbnail.description}</p>{" "}
               {/* Descripción del audio (opcional) */}
               <p className="duration">
                 {/* Calculamos y mostramos la duración en minutos y segundos, si está disponible */}
