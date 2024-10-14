@@ -56,6 +56,10 @@
   display: inline-block; /* Para permitir el posicionamiento absoluto */
 }
 
+.thumbnail.playing img {
+  opacity: 0.7; /* Ajusta la opacidad cuando está reproduciendo */
+}
+
 .play-icon {
   position: absolute; /* Posicionamiento absoluto */
   top: 35%; /* Centrar verticalmente */

@@ -39,7 +39,9 @@ const RecomendedAlbums: React.FC = () => {
         {thumbnails.map((thumbnail) => (
           <div
             key={thumbnail.url}
-            className="thumbnail"
+            className={`thumbnail ${
+              audioUrl === thumbnail.url && isPlaying ? "playing" : ""
+            }`}
             onClick={() => handleCardClick(thumbnail)}
           >
             <img src={thumbnail.logo} alt={thumbnail.title} />

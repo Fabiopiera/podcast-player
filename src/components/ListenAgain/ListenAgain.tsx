@@ -56,7 +56,9 @@ const ListenAgain: React.FC = () => {
         {thumbnails.map((thumbnail) => (
           <div
             key={thumbnail.url} // Usamos la URL como clave única para cada miniatura
-            className="thumbnail" // Clase CSS para el estilo de la miniatura
+            className={`thumbnail ${
+              audioUrl === thumbnail.url && isPlaying ? "playing" : ""
+            }`} // Clase CSS para el estilo de la miniatura
             onClick={() => handleCardClick(thumbnail)} // Llamamos a handleCardClick cuando se hace clic en una miniatura
           >
             <img src={thumbnail.logo} alt={thumbnail.title} />{" "}
