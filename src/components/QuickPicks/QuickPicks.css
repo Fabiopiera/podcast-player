@@ -77,4 +77,5 @@
   color: rgb(255, 255, 255); /* Color del ícono */
   z-index: 10; /* Asegúrate de que esté encima de la imagen */
   pointer-events: none; /* Para que no interfiera con los clics */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Sombra alrededor del ícono */
 }
